@@ -14,7 +14,7 @@ var io = socketIO(server);
 app.use(express.static(publicPath));
 
 app.get('/', (req, res) => {
-    res.send(publicPath + '/index.html');
+    res.send(publicPath + '/join.html');
 })
 
 io.on('connection', (socket) => {

@@ -4,6 +4,12 @@
 }
 
 /*HEADER SECTION*/
+#index-page-body{
+    height: 100vh;
+    background: #FF512F;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #DD2476, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #DD2476, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 .header-section{
     height : 80px;
     width:100%;
@@ -44,10 +50,60 @@
 }
 @media (max-width:360px){
     .app-title{
-        font-size:40px;
+        font-size:35px;
     }
 }
 /*HEADER SECTION styling ends up here*/
+
+/*Enter Box*/
+.enter-box{
+    height:300px;
+    width:300px;
+    margin:auto auto;
+    box-shadow: 1px 1px rgb(211, 75, 75);
+    box-sizing: border-box;
+}
+.entry-box{
+    height:95%;
+    width: 95%;
+    margin:80px auto;
+    padding-top: 25%;
+}
+.label{
+    font-family: 'Amatic SC', sans-serif;
+    text-align: center;
+    font-size:30px;
+}
+.input-box input{
+    width:100%;
+    outline: none;
+    -moz-user-focus: none;
+    height:30px;
+    border-radius:20px;
+    border: none;
+    text-align: center;
+    font-family: 'Amatic SC', sans-serif;
+    letter-spacing: 1px;
+    font-weight: bolder;
+}
+.submit-button-div{
+    margin-top:15px;
+    text-align: center;
+}
+#join-button{
+    height:30px;
+    border:none;
+    width:80px;
+    background:inherit;
+    font-size: 20px;
+    border:1px solid #000;
+    border-radius:20px;
+}
+#join-button:hover{
+    background-color: #000;
+    color:#fff;
+}
+/*Enter Box*/
 
 /*Container Div styling*/
 .container{
@@ -66,3 +122,4 @@
 .col-9{
     width:74%;
 }
+
