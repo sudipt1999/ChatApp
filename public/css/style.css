@@ -103,6 +103,11 @@
     background-color: #000;
     color:#fff;
 }
+.error{
+    color:#fff;
+    margin-top:10px;
+    font-weight: bolder;
+}
 /*Enter Box*/
 
 /*Container Div styling*/
