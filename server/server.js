@@ -44,18 +44,35 @@ io.on('connection', (socket) => {
             name: data.name,
             room: data.room
         };
+        /* MAKING ROOM SO THAT MESSAGE CAN BE SENT TO IT */
+        socket.join(data.room);
         // console.log(newUser);
         /*adding user to the dynamic storage */
         User.addUser(newUser);
         const userInRoom = User.findRoomUser(data.room);
-        socket.to(data.room).emit('updatedUserList', userInRoom);
+        io.to(data.room).emit('updatedUserList', userInRoom);
+    })
+
+    /*  METHOD FOR REGISTERING MESSAGE AND EMITING TO ROOM */
+    socket.on('newMessage', (data) => {
+        console.log("NEW MESSAGE RECEIVED ", data);
+        const user = User.findUser(id);
+        const message = {
+            from: user.name,
+            text: data.text,
+            time: new Date().getTime()
+        }
+        console.log("MESSAGE READY To SEND TO OTHERS ", message);
+        console.log("found user ", user);
+        User.findRoomUser(user.room);
+        io.to(user.room).emit('receivedMessage', message);
     })
 
 
     socket.on('disconnect', () => {
         var user = User.deleteUser(socket.id);
         const userInRoom = User.findRoomUser(user.room);
-        socket.to(User.room).emit('updatedUserList', userInRoom);
+        io.to(user.room).emit('updatedUserList', userInRoom);
     })
 
 })

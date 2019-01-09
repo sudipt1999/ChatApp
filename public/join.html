@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ChatApp</title>
+    <!----------------------------------STYLE SHEETS FOR CHAT APP------------------------------>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Open+Sans+Condensed:300|Shadows+Into+Light|Shrikhand"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div id="index-page-body">
+        <!----HEADER SECTION WHERE LOGO AND TITLE EXISTS-->
+        <div class="header-section">
+            <div class="header-box">
+                <img class="logo" alt="chat-app-logo" src="img/logo.png">
+                <span class="app-title">Chat App</span>
+            </div>
+        </div>
+        <!----HEADER SECTION WHERE LOGO AND TITLE EXISTS-ENDS-->
+        <!----BOX FOR ENTERING USERNAME AND ROOM ADDRESS-------->
+        <div class="enter-box">
+            <div class="entry-box">
+                <div class="label">
+                    <h3>Username</h3>
+                </div>
+                <div class="input-box">
+                    <input id="userName" type="text" name="name" placeholder="Username" autofocus />
+                </div>
+                <div class="label">
+                    <h3>Room Name</h3>
+                </div>
+                <div class="input-box">
+                    <input id="roomName" type="text" name="room" placeholder="Roomname" />
+                </div>
+                <div class="submit-button-div">
+                    <button id="join-button" onclick="joinRoom()">Join</button>
+                </div>
+            </div>
+        </div>
+        <!----BOX FOR ENTERING USERNAME AND ROOM ADDRESS-------->
+    </div>
+    <!--------SCRIPTS FOR CHAT APP -------------->
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/moment.js"></script>
+    <script src="js/user.js"></script>
+</body>
+
+</html>
