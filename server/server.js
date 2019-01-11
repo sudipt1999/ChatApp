@@ -50,6 +50,12 @@ io.on('connection', (socket) => {
         /*adding user to the dynamic storage */
         User.addUser(newUser);
         const userInRoom = User.findRoomUser(data.room);
+        const welcomeText = {
+            from: 'Admin',
+            text: `${newUser.name} joined the room`,
+            time: new Date()
+        }
+        socket.broadcast.to(data.room).emit('receivedMessage', welcomeText);
         io.to(data.room).emit('updatedUserList', userInRoom);
     })
 
@@ -72,6 +78,12 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         var user = User.deleteUser(socket.id);
         const userInRoom = User.findRoomUser(user.room);
+        var departureText = {
+            from: 'Admin',
+            text: `${user.name} left the room`,
+            time: new Date().getTime()
+        }
+        socket.broadcast.to(user.room).emit('receivedMessage', departureText);
         io.to(user.room).emit('updatedUserList', userInRoom);
     })
 
