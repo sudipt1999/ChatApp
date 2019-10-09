@@ -23,25 +23,25 @@ function sendMessage() {
 }
 
 /* Function for receiving message */
-socket.on('receivedMessage', function (data) {
-    console.log("RECEIVED MESSAGE", data);
-    var div = document.createElement('div');
-    div.setAttribute('class', 'message');
-    var h3 = document.createElement('h3');
-    h3.setAttribute('class', 'from');
-    h3.innerHTML = data.from;
-    div.appendChild(h3);
-    var span = document.createElement('span');
-    span.innerHTML = data.time;
-    span.setAttribute('class', 'time');
-    div.appendChild(span);
-    var p = document.createElement('p');
-    p.setAttribute('class', 'message-received');
-    p.innerHTML = data.text;
-    div.appendChild(p);
-    var messagePanel = document.getElementById('message-panel');
-    messagePanel.appendChild(div);
-})
+socket.on('receivedMessage', function(data) {
+    console.log('RECEIVED MESSAGE', data);
+
+    const messageWrap = document.createElement('div');
+    messageWrap.setAttribute('class', 'message');
+    const html = `
+        <div class="letter">${data.from.charAt(0)}</div>
+        <div class="">
+            <div class="from-details flex items-end">
+                <h3 class="from">${data.from}</h3>
+                <time datetime="${data.time}" class="time">${new Date(data.time).toLocaleString()}</time>
+            </div>
+            <p>${data.text}</p>
+        </div>
+    `;
+    messageWrap.innerHTML = html;
+    const messagePanel = document.getElementById('message-panel');
+    messagePanel.appendChild(messageWrap);
+});
 
 /* Funtion for receiving list of people */
 socket.on('updatedUserList', function (data) {
