@@ -1,6 +1,11 @@
 *{
     padding :0;
     margin:0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
 }
 
 /*HEADER SECTION*/
@@ -113,7 +118,7 @@
 /*Container Div styling*/
 .container{
     width:100%;
-    height: 100vh;
+    height: 100%;
     margin:0;
     padding:0;
     display: flex;
@@ -131,6 +136,7 @@
 
 .col-9{
     width:76%;
+    height: 100%;
 }
 
 .people{
@@ -149,6 +155,25 @@
     overflow: scroll;
     padding: 2em;
     box-sizing: border-box;
+
+    overflow-y: scroll;
+}
+
+.message {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #e4e4e4;
+    border-radius: 5px;
+}
+
+.from {
+    display: inline-block;
+    margin-right: 0.75rem;
+}
+
+.time {
+    color: rgb(126, 124, 124);
+    font-size: 0.8rem;
 }
 
 .message-sending-box{
@@ -160,6 +185,7 @@
 }
 #text-message{
     height:100%;
+    padding: 0 1rem;
     font-size: 17px;
     border: none;
     float: left;
@@ -173,21 +199,22 @@
     border: none;
     height: 100%;
     width:5%;
-    background: #FF512F;
+    background-color: #FF512F;
     color: white;
     cursor: pointer;
     padding: 10px;
+    transition: background-color 0.15s ease;
   }
 
   #send-message-button:hover {
     border: none;
-    background: rgb(139, 79, 67);
+    background-color: rgb(139, 79, 67);
     color: white;
   }
 
   #send-message-button:disabled {
     cursor: default;
-    background: rgb(231, 163, 150);
+    background-color: rgb(231, 163, 150);
   }
 
   #people-list {
