@@ -189,7 +189,7 @@ body {
     font-size: 17px;
     border: none;
     float: left;
-    width: 95%;
+    width: 89%;
     background: white;
     text-align: left;
     padding: 1em;
@@ -204,6 +204,18 @@ body {
     cursor: pointer;
     padding: 10px;
     transition: background-color 0.15s ease;
+  }
+  #send-image-button {
+    border: none;
+    height: 100%;
+    width: 5%;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    padding: 10px;
+  }
+  #send-image-button:hover {
+    color: grey;
   }
 
   #send-message-button:hover {
