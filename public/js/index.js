@@ -43,6 +43,21 @@ socket.on('receivedMessage', function(data) {
     messagePanel.appendChild(messageWrap);
 });
 
+/*Function for sending image */
+function sendImage() {
+  console.log= ("SEND IMAGE CALLED");
+  // const image = 
+  const sendimage = {
+      text: image
+  }
+  console.log("image", sendimage);
+  socket.emit('newImage', sendimage);
+}
+/*Function for receiving image */
+socket.on('receivedImage', function(img) {
+  console.log('RECEIVED IMAGE', img);
+})
+
 /* Funtion for receiving list of people */
 socket.on('updatedUserList', function (data) {
     console.log("user list", data);

@@ -5,6 +5,7 @@ var path = require('path');
 var moment = require('moment');
 const Users = require('./utils/users');
 const User = new Users();
+const fs = require('fs');
 
 const publicPath = path.join(__dirname, '../public');
 
@@ -72,6 +73,13 @@ io.on('connection', (socket) => {
         console.log("found user ", user);
         User.findRoomUser(user.room);
         io.to(user.room).emit('receivedMessage', message);
+    })
+
+    /*  METHOD FOR REGISTERING IMAGE AND EMITING TO ROOM */
+    socket.on('newImage', (img) => {
+      console.log("NEW IMAGE RECEIVED", img);
+      const user = User.findUser(id);
+      io.to(user.room).emit('receivedImage', message);
     })
 
 
